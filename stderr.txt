@@ -1,0 +1,14 @@
+/home/acpepper/HOTCI_test_analysis/pyCTH/DataOutBinReader.py:653: RuntimeWarning: invalid value encountered in double_scalars
+  print "fraction of M_D from target = {}%".format(M_D_frac/M_D*100)
+/home/acpepper/HOTCI_test_analysis/pyCTH/DataOutBinReader.py:554: RuntimeWarning: Mean of empty slice.
+  R_P = rads[radInds][keInds][-8:].mean()
+/share/apps/bio/anaconda2/lib/python2.7/site-packages/numpy/core/_methods.py:80: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+Traceback (most recent call last):
+  File "postImpactAnalysis.py", line 98, in <module>
+    pia.plotEnergyTotal(IMPACT_DIR, IMPACT_NAME, "binDat", "../plots/"+IMPACT_NAME)
+  File "/home/acpepper/HOTCI_test_analysis/pyCTH/PostImpactAnalysis.py", line 568, in plotEnergyTotal
+    M_P, R_P, erthInds, diskInds, escpInds = dobrDat.findPlanet(0)
+  File "/home/acpepper/HOTCI_test_analysis/pyCTH/DataOutBinReader.py", line 565, in findPlanet
+    if k > keInds[-1]:
+IndexError: index -1 is out of bounds for axis 0 with size 0

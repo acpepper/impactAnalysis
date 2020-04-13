@@ -1,0 +1,2 @@
+/home/acpepper/HOTCI_test_analysis/pyCTH/PostImpactAnalysis.py:547: RuntimeWarning: divide by zero encountered in divide
+  plt.plot(rs/1e5, pow( G*M_P / pow(rs, 3), 0.5 ), c='b')
