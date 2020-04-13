@@ -13,4 +13,4 @@
 
 #ulimit -l unlimited
 
-python postImpactAnalysis.py > runlog.txt
+python impactAnalysis.py > runlog.txt
