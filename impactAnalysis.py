@@ -1,23 +1,10 @@
-import matplotlib as mpl
-mpl.use('Agg')
-
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib.colors import LogNorm
-import numpy as np
-import os
-import matplotlib.pyplot as plt
-from matplotlib.ticker import ScalarFormatter
-
-fmtr = ScalarFormatter()
-fmtr.set_powerlimits((0, 1))
-
 import sys
-sys.path.append("/home/acpepper/HOTCI_test_analysis/")
+sys.path.append("/home/acpepper/HOTCI_stuff/")
 import pyCTH.DataOutBinReader as dor
 import pyCTH.HcthReader as hcr
-import pyCTH.PostImpactAnalysis as pia
+import pyCTH.ImpactAnalysis as ima
 
-from matplotlib.colors import LinearSegmentedColormap
+# from matplotlib.colors import LinearSegmentedColormap
 
 
 
@@ -28,12 +15,10 @@ IMPACT_NAME = "M0.57_m0.47_L0"
 # "M0.57_m0.47_L0"
 
 IMPACT_DIR = "/group/stewartgrp/acpepper/cthruns/impact_tests/"
-
 if IMPACT_DIR[-1] != '/':
     IMPACT_DIR = IMPACT_DIR+'/'
 
 PLOT_DIR = "../plots/"
-
 if PLOT_DIR[-1] != '/':
     PLOT_DIR = PLOT_DIR+'/'
 
@@ -42,7 +27,12 @@ if PLOT_DIR[-1] != '/':
 # NOTE: the binary data files are in CGS units
 if __name__ == "__main__":
     # plot the energy evolution
-    pia.plotEnergyTotal(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+    # ima.plotEnergyTotal_dyn(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+    # ima.plotEnergyTotal_mat(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+
+    # plot the angular momentum evolution
+    # ima.plotAngMomTotal_dyn(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+    ima.plotAngMomTotal_mat(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
 
     '''
     # binary data analysis (binDat files)
@@ -59,12 +49,12 @@ if __name__ == "__main__":
         p = [0, 0, 0]
         n = [0, 0, 1]
         slcInds = dodata.slice2dFrom3d(p, n, 0)
-        pia.plotProfMixing(dodata, PLOT_DIR+IMPACT_NAME)
+        ima.plotProfMixing(dodata, PLOT_DIR+IMPACT_NAME)
 
         # print "mixing slice"
-        pia.plotSliceMixing(dodata, PLOT_DIR+IMPACT_NAME, slcInds=slcInds)
+        ima.plotSliceMixing(dodata, PLOT_DIR+IMPACT_NAME, slcInds=slcInds)
         print "dens slice"
-        pia.plotSlice(dodata,
+        ima.plotSlice(dodata,
                       diskInds,
                       escpInds,
                       R_P,
@@ -72,7 +62,7 @@ if __name__ == "__main__":
                       ("DENS", 1e3),
                       slcInds=slcInds)
         print "press slice"
-        pia.plotSlice(dodata,
+        ima.plotSlice(dodata,
                       diskInds,
                       escpInds,
                       R_P,
@@ -80,7 +70,7 @@ if __name__ == "__main__":
                       ("P", 0.1),
                       slcInds=slcInds)
         print "temp slice"
-        pia.plotSlice(dodata,
+        ima.plotSlice(dodata,
                       diskInds,
                       escpInds,
                       R_P,
@@ -88,7 +78,7 @@ if __name__ == "__main__":
                       ("T", 1.1604e4),
                       slcInds=slcInds)
         print "energy scatter"
-        pia.plotEnergyScatter(dodata,
+        ima.plotEnergyScatter(dodata,
                               diskInds,
                               escpInds,
                               M_P,
@@ -96,7 +86,7 @@ if __name__ == "__main__":
                               PLOT_DIR+IMPACT_NAME,
                               slcInds=slcInds)
         print "avels"
-        pia.plotAvels(dodata,
+        ima.plotAvels(dodata,
                       diskInds,
                       escpInds,
                       M_P,

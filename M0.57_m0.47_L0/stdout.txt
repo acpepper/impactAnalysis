@@ -1,6 +1,6 @@
 ==========================================
-SLURM_JOB_ID = 2458
-SLURM_NODELIST = c7-66
+SLURM_JOB_ID = 2541
+SLURM_NODELIST = c7-67
 CUDA_VISIBLE_DEVICES = 
 ==========================================
 Module openmpi/3.1.3 loaded 

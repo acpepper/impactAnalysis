@@ -42,8 +42,14 @@ if PLOT_DIR[-1] != '/':
 # NOTE: the binary data files are in CGS units
 if __name__ == "__main__":
     # plot the energy evolution
-    pia.plotEnergyTotal(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+    # pia.plotEnergyTotal_dyn(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+    pia.plotEnergyTotal_mat(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
 
+    # plot the angular momentum evolution
+    # pia.plotAngMomTotal_dyn(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+    # pia.plotAngMomTotal_mat(IMPACT_DIR, IMPACT_NAME, "binDat", PLOT_DIR+IMPACT_NAME)
+
+    '''
     # binary data analysis (binDat files)
     dodata = dor.DataOutBinReader()
     cycs, numCycs = dodata.getCycles("binDat", IMPACT_DIR+IMPACT_NAME)
@@ -101,3 +107,4 @@ if __name__ == "__main__":
                       R_P,
                       PLOT_DIR+IMPACT_NAME,
                       slcInds=slcInds)
+    '''
